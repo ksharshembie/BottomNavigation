@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun openGalleryForImage() {
-        binding.btnLoad.setOnClickListener() {
+        binding.imageviewProfile.setOnClickListener() {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"
             startActivityForResult(intent, REQUEST_CODE)
