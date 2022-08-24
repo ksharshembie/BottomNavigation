@@ -1,7 +1,10 @@
 package com.example.bottomnavigation
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -34,5 +37,25 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        navController.navigate(R.id.boardFragment)
+
+        navController.addOnDestinationChangedListener(object :
+            NavController.OnDestinationChangedListener {
+            override fun onDestinationChanged(
+                controller: NavController,
+                destination: NavDestination,
+                arguments: Bundle?
+            ) {
+                if(destination.id == R.id.boardFragment){
+                    navView.visibility = View.GONE  // нижнее нав меню скрывается
+                    supportActionBar?.hide()        // ActionBar скрывается
+                } else {
+                    navView.visibility = View.VISIBLE
+                    supportActionBar?.show()
+                }
+            }
+        })
+
     }
 }

@@ -31,4 +31,9 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.bottomnavigation.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/boardFragment"
+        android:name="com.example.bottomnavigation.ui.onboard.BoardFragment"
+        android:label="fragment_board"
+        tools:layout="@layout/fragment_board" />
 </navigation>
